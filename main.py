@@ -1,12 +1,12 @@
 # pynput参考资料 https://blog.csdn.net/forward_huan/article/details/107991355
 
 import time
-import win32api
-import win32con
-import pydirectinput
+import win32gui, win32ui, win32con, win32api
 import fish3
 from gui32 import My_gui32
 from threading import Thread
+import cv2
+import numpy as np
 
 
 def test():
@@ -14,12 +14,6 @@ def test():
     mouse_move(200, 500)
     mouse_click()
     time.sleep(3)
-    key_click("m")
-
-
-def key_click(key_str):
-    pydirectinput.keyDown(key_str)
-    pydirectinput.keyUp(key_str)
 
 
 def mouse_click():

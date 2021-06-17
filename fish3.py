@@ -2,14 +2,7 @@ import win32gui, win32ui, win32con, win32api
 import time
 import cv2
 import numpy as np
-import numpy
-import pydirectinput
 from threading import Thread
-
-
-def key_click(key_str):
-    pydirectinput.keyDown(key_str)
-    pydirectinput.keyUp(key_str)
 
 
 def mouse_click():
@@ -128,7 +121,7 @@ def window_capture(hwnd=0, num="2", pos_char=[398, 759]):
         saveDC.BitBlt((0, 0), size_wh, mfcDC, start_wh, win32con.SRCCOPY)  # 截取从(100，100)长宽为(w，h)的图片
 
         signedIntsArray = saveBitMap.GetBitmapBits(True)
-        im_opencv = numpy.frombuffer(signedIntsArray, dtype='uint8')
+        im_opencv = np.frombuffer(signedIntsArray, dtype='uint8')
         im_opencv.shape = (h, w, 4)
         im_opencv = cv2.cvtColor(im_opencv, cv2.COLOR_BGRA2BGR)
         ###############################检测################################
@@ -169,10 +162,10 @@ def window_capture(hwnd=0, num="2", pos_char=[398, 759]):
             break
 
         #################################################################
-        cv2.imshow(num, im_opencv)  # 显示
-
-        if (cv2.waitKey(1) & 0xFF) == ord('q'):  # 其实有无0xFF都可，加上防止返回值超过255，和‘1’的ascii码比较
-            break
+        # cv2.imshow(num, im_opencv)  # 显示
+        #
+        # if (cv2.waitKey(1) & 0xFF) == ord('q'):  # 其实有无0xFF都可，加上防止返回值超过255，和‘1’的ascii码比较
+        #     break
     #######################################################
     #####释放内存    
     win32gui.DeleteObject(saveBitMap.GetHandle())
