@@ -103,7 +103,7 @@ def window_capture(hwnd=0, num="2", pos_char=[398, 759]):
     yellow_interval = 0.15
     purple_interval = 0.15
     last_time = time.time()
-    thread = Thread(target=key_loop, daemon=False, args=(num, short_list, long_list, flag))  # 创建一个子线程，用于接收数据
+    thread = Thread(target=key_loop, daemon=True, args=(num, short_list, long_list, flag))  # 创建一个子线程，用于接收数据
     thread.start()  # 启动子线程
     ###########尺寸###########
     d = 130  # 监测区域边长
@@ -121,7 +121,7 @@ def window_capture(hwnd=0, num="2", pos_char=[398, 759]):
     saveBitMap = win32ui.CreateBitmap()  # 创建bigmap准备保存图片
     saveBitMap.CreateCompatibleBitmap(mfcDC, w, h)  # 为bitmap开辟空间
 
-    print("start")
+    print("线程"+num+"已启动")
     ###################################################
     while True:
         saveDC.SelectObject(saveBitMap)  # 高度saveDC，将截图保存到saveBitmap中
@@ -181,7 +181,7 @@ def window_capture(hwnd=0, num="2", pos_char=[398, 759]):
     win32gui.ReleaseDC(hwnd, hwndDC)
     #####关闭all窗口
     cv2.destroyAllWindows()
-    print("end")
+    print("线程"+num+"已结束")
 
 
 def SearchImage(_hwnd):
