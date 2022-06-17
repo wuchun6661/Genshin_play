@@ -7,6 +7,11 @@
 目前仅支持分辨率1440x900
 
 不管哪种启动，都可以通过按“q”结束
+## 下载
+#### 1、直接下载
+https://github.com/wuchun6661/Genshin_play/archive/refs/heads/master.zip
+#### 2、git clone下载（新手勿试）
+git clone 
 
 ## 运行
 
