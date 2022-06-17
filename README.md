@@ -10,9 +10,10 @@
 
 ## 下载
 #### 1、直接下载
-https://github.com/wuchun6661/Genshin_play/archive/refs/heads/master.zip
+下载链接:https://github.com/wuchun6661/Genshin_play/archive/refs/heads/master.zip
+下载后解压就ok了
 #### 2、git clone下载（新手勿试）
-git clone https://github.com/wuchun6661/Genshin_play.git
+git命令:git clone https://github.com/wuchun6661/Genshin_play.git
 
 ## 运行
 
